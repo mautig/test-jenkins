@@ -13,4 +13,8 @@ pipeline {
         }
       }
    }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/main
