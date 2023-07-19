@@ -1,13 +1,16 @@
-node {
-    stage("Clone project") {
-        git branch: 'main', url: ''
-    }
+pipeline {
+  agent any
+  stages {
+      stage("Compilation") {
+        steps {
+            sh "./demo/mvnw clean install -DskipTest"
+        }
+      }
 
-    stage("Compilation") {
-        sh "./mvnw clean install -DskipTest"
-    }
-
-    stage("Test") {
-        sh "./mvnw test -Punit"
-    }
+      stage("Test") {
+        steps {
+            sh "./demo/mvnw test -Punit"
+        }
+      }
+   }
 }
