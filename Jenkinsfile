@@ -2,11 +2,15 @@ pipeline {
   agent any
   stages {
       stage("Compilation") {
-        sh "./mvnw clean install -DskipTest"
+        steps {
+            sh "./mvnw clean install -DskipTest"
+        }
       }
 
       stage("Test") {
-        sh "./mvnw test -Punit"
+        steps {
+            sh "./mvnw test -Punit"
+        }
       }
    }
 }
