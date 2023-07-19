@@ -3,13 +3,13 @@ pipeline {
   stages {
       stage("Compilation") {
         steps {
-            sh "./mvnw clean install -DskipTest"
+            sh "./demo/mvnw clean install -DskipTest"
         }
       }
 
       stage("Test") {
         steps {
-            sh "./mvnw test -Punit"
+            sh "./demo/mvnw test -Punit"
         }
       }
    }
