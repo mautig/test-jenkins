@@ -1,9 +1,9 @@
 node {
     stage("Compilation") {
-        sh "./mvnw clean install -DskipTest"
+        sh "./demo/mvnw clean install -DskipTest"
     }
 
     stage("Test") {
-        sh "./mvnw test -Punit"
+        sh "./demo/mvnw test -Punit"
     }
 }
