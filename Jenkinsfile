@@ -1,9 +1,12 @@
-node {
-    stage("Compilation") {
-        sh "./demo/mvnw clean install -DskipTest"
-    }
+pipeline {
+  agent any
+  stages {
+      stage("Compilation") {
+        sh "./mvnw clean install -DskipTest"
+      }
 
-    stage("Test") {
-        sh "./demo/mvnw test -Punit"
-    }
+      stage("Test") {
+        sh "./mvnw test -Punit"
+      }
+   }
 }
